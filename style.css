@@ -1,15 +1,79 @@
 body {
     font-family:'Courier New', Courier, monospace;
-    background-color:darkblue;
+    background-color:rgb(0, 63, 139);
     color:cyan
 }
 
 h1 {
-    color:cadetblue;
-    font-size: 40px;
+    color:rgb(35, 184, 189);
+    font-size: 60px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
 
 img {
     border-radius: 35px;
+}
+
+.carta{
+    
+    width: 240px;
+    background-color:rgb(2, 60, 118);
+    border: 5px solid rgb(6, 254, 200);
+    border-radius: 18px;
+    padding: 16px;
+    text-align: center
+}
+
+.carta img{
+    width: 100%;
+    height: 220px; 
+    border-radius: 12px  
+}
+
+.carta h2{
+    color:rgb(48, 234, 160);
+    font-size: 22px
+    
+}
+
+.raridade{
+    display: inline-block;
+    background-color:coral;
+    color:rgb(6, 19, 100);
+    font-weight: bold;
+    padding: 4px 14px;
+    border-radius: 20px;
+}
+.atributos {
+    list-style: none;
+    padding: 0
+}
+
+.atributos li{
+    border: 4px solid rgb(10, 163, 168);
+    border-radius: 20px;
+    padding: 6px 10px;
+    margin-top: 16px;
+    font-size: 25px;
+    font-weight: bold
+}
+
+/* ===== Raridades: a segunda classe muda a cor ===== */
+.rara { border-color: #4fa3ff; }
+.rara .raridade { background-color: #4fa3ff; }
+
+.lendaria { border-color: #ccf000; }
+.lendaria .raridade { background-color: #edf900; }
+
+.incomum { border-color: #75ff4f; }
+.incomum .raridade { background-color: #4fff58; }
+/* ===== Animação: a carta brilha com o mouse ===== */
+.carta:hover {
+    animation: brilhar 1s infinite;
+}
+
+.colecao{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 24px
 }
