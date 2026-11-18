@@ -3,13 +3,17 @@
 <html>
     <head>
         <title>Super trunfo: Memes</title>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="../static/css/style.css">
     </head>
 
     <body>
         
         <h1>Trunfo de Memes</h1>
-
+            <p>
+                <a class="botao" href="/pacotinho">Abrir pacotinho</a>
+                <a href="/regras">Ver as regras do jogo</a>
+                <a href="{{url_for('criar')}}">criar nova carta</a>
+            </p>
         <p>
             Este site é um jogo baseado
             em super Trunfo com cartas
@@ -20,10 +24,10 @@
         <div class="colecao">
 
             <div class="carta rara">
-                
+
                 <h2>Cebolo</h2>
                 <img
-                src="images/Cebolinha.jpg"
+                src="../static/images/Cebolinha.jpg"
                 alt="imagem retirada de https://br.pinterest.com/pin/26388347812225132/"
                 widht="350">
                 
@@ -34,14 +38,14 @@
                     <li>Viralidade: 25</li>
                     <li>Resenha: 100</li>
                 </ul>
-            
+                <a class="botao" href="/duelo/cebolo">Duelar</a>
             </div>
 
             <div class="carta lendaria">
                 
                 <h2>Calado beta</h2>
                 <img
-                src="images/calado beta.jpg"
+                src="../static/images/calado beta.jpg"
                 alt="imagem retirada de https://br.pinterest.com/pin/609041549654079251/"
                 widht="350">
                 
@@ -52,14 +56,14 @@
                     <li>Viralidade: 75</li>
                     <li>Resenha: 80</li>
                 </ul>
-            
+                <a class="botao" href="/duelo/calado">Duelar</a>
             </div>
-
+                #Aqui
             <div class="carta incomum">
                 
                 <h2>Burro carente</h2>
                 <img
-                src="images/burro.jpg"
+                src="../static/images/burro.jpg"
                 alt="imagem retirada de https://br.pinterest.com/pin/1132585006305170848/"
                 widht="350">
                 
@@ -70,6 +74,7 @@
                     <li>Viralidade: 75</li>
                     <li>Resenha: 55</li>
                 </ul>
+            <a class="botao" href="/duelo/burro">Duelar</a>
         </div>
     </body>
 </html>
