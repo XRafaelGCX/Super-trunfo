@@ -21,60 +21,37 @@
             Está preparado para a batalha?
         </p>
         
+                <!-- A carta vai aqui -->
         <div class="colecao">
+            {% for chave, carta in cartas.items() %}
+                <div class="carta {{ carta['raridade'] }}">
+                    <h2>{{ carta['nome'] }}</h2>
+                    <img src="/static/images/{{ carta['img'] }}"
+                    alt="{{ carta['nome'] }}"
+                    width="250">
 
-            <div class="carta rara">
+                    <p class="raridade">
+                    {% if carta['raridade'] == "lendaria" %}
+                        Lendária
+                    {% elif carta['raridade'] == "rara" %}
+                        Rara
+                    {% elif carta['raridade'] == "epica" %}
+                        Épica
+                    {% else %}
+                        Incomum
+                    {% endif %}
+                    </p>
 
-                <h2>Cebolo</h2>
-                <img
-                src="../static/images/Cebolinha.jpg"
-                alt="imagem retirada de https://br.pinterest.com/pin/26388347812225132/"
-                widht="350">
-                
-                <p class="raridade">Rara</p>
-                
-                <ul class="atributos">
-                    <li>Aura: 70</li>
-                    <li>Viralidade: 25</li>
-                    <li>Resenha: 100</li>
-                </ul>
-                <a class="botao" href="/duelo/cebolo">Duelar</a>
-            </div>
+                    <ul class="atributos">
+                        <li>Viralidade: {{ carta['viralidade'] }}</li>
+                        <li>Resenha: {{ carta['resenha'] }}</li>
+                        <li>Aura: {{ carta['aura'] }}</li>
+                    </ul>
+                    <a class="botao" href="/duelo/{{ chave }}">Duelar</a>
+                </div>
+            {% endfor %}
+        </div>
 
-            <div class="carta lendaria">
-                
-                <h2>Calado beta</h2>
-                <img
-                src="../static/images/calado beta.jpg"
-                alt="imagem retirada de https://br.pinterest.com/pin/609041549654079251/"
-                widht="350">
-                
-                <p class="raridade">lendária</p>
-                
-                <ul class="atributos">
-                    <li>Aura: 80</li>
-                    <li>Viralidade: 75</li>
-                    <li>Resenha: 80</li>
-                </ul>
-                <a class="botao" href="/duelo/calado">Duelar</a>
-            </div>
-                #Aqui
-            <div class="carta incomum">
-                
-                <h2>Burro carente</h2>
-                <img
-                src="../static/images/burro.jpg"
-                alt="imagem retirada de https://br.pinterest.com/pin/1132585006305170848/"
-                widht="350">
-                
-                <p class="raridade">incomum</p>
-                
-                <ul class="atributos">
-                    <li>Aura: 60</li>
-                    <li>Viralidade: 75</li>
-                    <li>Resenha: 55</li>
-                </ul>
-            <a class="botao" href="/duelo/burro">Duelar</a>
         </div>
     </body>
 </html>

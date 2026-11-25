@@ -7,23 +7,23 @@ app = Flask(__name__)
 cartas = {
     "cebolo" : {
                     "nome" : "Cebolo",
-                    "img" : "../static/images/Cebolinha.jpg",
-                    "raridade" : "Raro",
+                    "img" : "Cebolinha.jpg",
+                    "raridade" : "rara",
                     "viralidade" : 25,
                     "resenha" : 100,
                     "aura" : 70
                 },
     "calado" : {
                     "nome" : "Calado beta",
-                    "img" : "../static/images/calado beta.jpg",
-                    "raridade" : "Lendário",
+                    "img" : "calado beta.jpg",
+                    "raridade" : "lendaria",
                     "viralidade" : 75,
                     "resenha" : 80,
                     "aura" : 80
                 },
     "burro" : {
                     "nome" : "Burro carente",
-                    "img" : "../static/images/burro.jpg",
+                    "img" : "burro.jpg",
                     "raridade" : "Incomum",
                     "viralidade" : 75,
                     "resenha" : 55,
@@ -34,7 +34,7 @@ cartas = {
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("index.html", cartas=cartas)
 
 
 @app.route("/regras")
@@ -78,7 +78,7 @@ def resultado(carta, atributo):
     else:
         resultado = "Empate!"
 
-    poder_total = minha["viralidade"] + minha["zoeira"] + minha["nostalgia"]
+    poder_total = minha["viralidade"] + minha["resenha"] + minha["aura"]
 
     return render_template("resultado.html",
                            atributo=atributo,
@@ -99,18 +99,18 @@ def carta_criada():
     imagem = request.form["imagem"]
     raridade = request.form["raridade"]
     viralidade = int(request.form["viralidade"])
-    zoeira = int(request.form["zoeira"])
-    nostalgia = int(request.form["nostalgia"])
+    resenha = int(request.form["resenha"])
+    aura = int(request.form["aura"])
 
     # A carta nova também entra no duelo (até o servidor reiniciar!)
     chave = nome.lower().replace(" ", "-")
-    cartas[chave] = {"nome": nome, "imagem": imagem, "raridade": raridade,
-                     "viralidade": viralidade, "zoeira": zoeira, "nostalgia": nostalgia}
+    cartas[chave] = {"nome": nome, "img": imagem, "raridade": raridade,
+                     "viralidade": viralidade, "resenha": resenha, "aura": aura}
 
-    poder_total = viralidade + zoeira + nostalgia
+    poder_total = viralidade + resenha + aura
     return render_template("carta_criada.html",
                            chave=chave, nome=nome, imagem=imagem, raridade=raridade,
-                           viralidade=viralidade, zoeira=zoeira, nostalgia=nostalgia,
+                           viralidade=viralidade, resenha=resenha, aura=aura,
                            poder_total=poder_total)
 
 if __name__ == "__main__":
